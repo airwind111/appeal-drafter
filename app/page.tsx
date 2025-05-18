@@ -13,16 +13,23 @@ const steps = [
 ];
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({
-    appealType: '',
-    appellant: '',
-    file: null,
-    customGrounds: '',
-    advocate: '',
-    draftLanguage: '',
-    stay: false,
-  });
+  const [formData, setFormData] = useState<{
+  appealType: string;
+  appellant: string;
+  file: File | null;
+  customGrounds: string;
+  advocate: string;
+  draftLanguage: string;
+  stay: boolean;
+}>({
+  appealType: '',
+  appellant: '',
+  file: null,
+  customGrounds: '',
+  advocate: '',
+  draftLanguage: '',
+  stay: false,
+});
 
   const goNext = () => {
     if (currentStep < steps.length - 1) setCurrentStep(currentStep + 1);
